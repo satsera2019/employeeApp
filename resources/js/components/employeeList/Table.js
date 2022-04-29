@@ -1,7 +1,10 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import ReactDOM, { render } from 'react-dom';
 import TableRow from './TableRow';
+import { ToastContainer,  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import CreateModal from './Modals/CreateModal';
+
 class Table extends Component {
 
 
@@ -22,7 +25,6 @@ class Table extends Component {
     getEmployeeList = () => {
         var self = this;
         axios.get('/get/employee/list').then(function (response) {
-            // console.log(response.data);
             self.setState({
                 employees: response.data
             });
@@ -32,6 +34,8 @@ class Table extends Component {
     render() {
         return (
             <div className="container">
+                <ToastContainer/>
+                <CreateModal/>
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="card">
