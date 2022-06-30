@@ -20,3 +20,7 @@ Route::post('/update/employee/data', [EmployeesController::class, 'updateEmploye
 Route::delete('/delete/employee/data/{employee}', [EmployeesController::class, 'destroy']);
 
 Route::post('/store/employee/data', [EmployeesController::class, 'store']);
+
+
+
+Route::get('/scraper', [App\Http\Controllers\scraper\ScraperController::class, 'scraper'])->name('scraper'); // scraper
